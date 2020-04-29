@@ -1,0 +1,21 @@
+commit 48148e47feb1f097d4400bacca23c5fd2d9caa48
+Author: Jay Logue <jaylogue@google.com>
+Date:   Thu Aug 29 20:09:04 2019 -0700
+
+    openweave-esp32-lwip-patch-0003 : Removed include in lwipopts.h
+    
+    Removed unnecessary inclusion of sys/ioctl.h in lwipopts.h that results in
+    compilation errors in certain contexts where LwIP headers are included.
+
+diff --git a/port/esp32/include/lwipopts.h b/port/esp32/include/lwipopts.h
+index 444272d..d10788e 100644
+--- a/port/esp32/include/lwipopts.h
++++ b/port/esp32/include/lwipopts.h
+@@ -52,7 +52,6 @@
+ #include <unistd.h>
+ #include <sys/time.h>
+ #include <sys/fcntl.h>
+-#include <sys/ioctl.h>
+ #include <sys/types.h>
+ #include <sys/select.h>
+ #include "esp_task.h"
